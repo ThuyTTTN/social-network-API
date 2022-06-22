@@ -12,7 +12,7 @@ const UserSchema = new Schema({
         type: String,
         unique: true,
         required: true,     //requiring data to exist for this field
-        match: /.+\@.+\..+/
+        match: [/.+\@.+\..+/, 'Please provide a valid email']
     },
     //thoughts: array of _id values ref the Thought model
     thoughts: [
@@ -33,7 +33,7 @@ const UserSchema = new Schema({
     //tell the schema that we can use virtuals
     toJSON: {
         virtuals: true,
-        getters: true           //tell Mongoose model to use the 'getter' function 
+        
     },
     id: false       //set to false b/c virtual mongoose usually returns an id
 }
