@@ -1,10 +1,12 @@
-//import all of the API routes to prefix their endpoint names and package them up
-const router = require("express").Router();
-const userRoutes = require("./api/users-routes");
-const thoughtRoutes = require("./api/thoughts-routes");
+const router = require('express').Router();
+//import all of api routes
+const apiRoutes = require('./api');
 
-//add prefix of '/users to routes created in user-routes.js
-router.use("/users", userRoutes);
-router.use("/thoughts", thoughtRoutes);
+//add prefix of all '/api' to all of the api routes imported from the 'api' directory
+router.use('/api', apiRoutes);
+
+router.use((req, res) => {
+    res.status(404).send('<h1> 404 Error!</h1>')
+});
 
 module.exports = router;
