@@ -19,8 +19,8 @@ router
 //set up GET one, PUT, and DELETE at /api/thoughts/:id
 router
     .route('/:id')
-    .route(getThoughtById)
-    .route(updateThought)
-    .route(deleteThought);
+    .get(getThoughtById)
+    .put(updateThought)
+    .delete(deleteThought);
 
 module.exports = router;

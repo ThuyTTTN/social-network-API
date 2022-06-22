@@ -19,8 +19,8 @@ router
 //set up GET one, PUT, and DELETE at /api/users/:id
 router
     .route('/:id')
-    .route(getUserById)
-    .route(updateUser)
-    .route(deleteUser);
+    .get(getUserById)
+    .put(updateUser)
+    .delete(deleteUser);
 
 module.exports = router;
