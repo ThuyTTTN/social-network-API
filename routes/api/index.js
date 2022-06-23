@@ -1,7 +1,7 @@
 //import all of the API routes to prefix their endpoint names and package them up
 const router = require("express").Router();
-const userRoutes = require("./users-routes");
-const thoughtRoutes = require("./thoughts-routes");
+const userRoutes = require("./user-routes");
+const thoughtRoutes = require("./thought-routes");
 
 //add prefix of '/users to routes created in users-routes.js
 router.use("/users", userRoutes);
