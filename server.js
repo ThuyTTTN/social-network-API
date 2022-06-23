@@ -7,7 +7,6 @@ const PORT = process.env.PORT || 3001;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-
 app.use(require('./routes'));
 
 //tells Mongoose which database we want to connect to
