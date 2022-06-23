@@ -24,10 +24,15 @@ router
     .get(getThoughtById)
     .post(createThought)
     .put(updateThought)
-    .put(addReaction)
     .delete(deleteThought);
 
-//DELETE route to handle removeReaction
-router.route('/:userId/:thoughtId/:reactionId').delete(removeReaction);
+// /api/thoughts/thoughtId/reactions
+router
+.route('/:thoughtId')
+.post(addReaction);
+
+router
+.route('/:thoughtId/:reactionId')
+.delete(removeReaction);
 
 module.exports = router;
