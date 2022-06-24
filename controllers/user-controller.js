@@ -9,6 +9,8 @@ const userController = {
           select: "-__v",
         })
         .select("-__v")
+        //sort in DESC order by _id so that the newest user returns first
+        .sort({ _id: -1 })
         .then((dbUserData) => res.json(dbUserData))
         .catch((err) => {
             console.log(err);
@@ -48,8 +50,7 @@ const userController = {
     //update user by id
     updateUser({ params, body }, res) {
         User.findOneAndUpdate({ _id: params.id }, body, {
-          new: true
-        })
+          new: true })
         .then((dbUserData) => {
             if (!dbUserData) {
               res.status(404).json({ message: "No user found with this id!" });
@@ -100,23 +101,11 @@ const userController = {
       User.findOneAndUpdate(
         { _id: params.id },
         { $pull: { friends: params.friendId }},
-        { new: true } 
-        )
-        .populate({ 
-          path: 'friends',
-          select: "-__v"
-      })
-      .select("-__v")
-      .then((dbUserData) => {
-        if (!dbUserData) {
-          res.status(404).json({ message: "No user found with this id!" });
-          return;
-        }
-        res.json(dbUserData);
-      })
-      .catch((err) => res.status(400).json(err));
+        { new: true })
+        
+      .then((dbUserData) => res.json(dbUserData))
+      .catch((err) => res.json(err));
     }
-
 }
 
 module.exports = userController;
