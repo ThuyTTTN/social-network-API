@@ -13,6 +13,7 @@ const thoughtController = {
         .catch((err) => {
             console.log(err);
             res.json(400).json(err);
+            
         });
     },
 
@@ -43,6 +44,7 @@ const thoughtController = {
         Thought.create(body) 
         .then(({_id}) => {
             return User.findOneAndUpdate(
+                //use _id to add thought to user
                 { _id: params.userId },
                 //$push method to add thought's _id to specific user
                 { $push: { thoughts: _id } },

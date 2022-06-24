@@ -33,7 +33,6 @@ const UserSchema = new Schema({
     //tell the schema that we can use virtuals
     toJSON: {
         virtuals: true,
-        
     },
     id: false       //set to false b/c virtual mongoose usually returns an id
 }
