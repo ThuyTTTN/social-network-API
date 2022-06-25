@@ -4,12 +4,7 @@ const userController = {
     //get all users
     getAllUser(req, res) {
         User.find({})
-        .populate({
-          path: "thoughts",
-          select: "-__v",
-        })
-        .select("-__v")
-        //sort in DESC order by _id so that the newest user returns first
+        // sort in DESC order by _id so that the newest user returns first
         .sort({ _id: -1 })
         .then((dbUserData) => res.json(dbUserData))
         .catch((err) => {
@@ -69,7 +64,7 @@ const userController = {
               res.status(404).json({ message: "No user found with this id!" });
               return;
             }
-            res.json(dbUserData);
+            res.json({message: 'User has been deleted'});
           })
           .catch((err) => res.status(400).json(err));
     },
