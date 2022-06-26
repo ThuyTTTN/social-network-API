@@ -36,7 +36,8 @@ Reaction
 ```
 
 ## Screenshots 
-![screencapture-nameOfImage](linktoimage)
+![image](https://user-images.githubusercontent.com/92459709/175830022-3e7c7dc2-f555-4776-9c92-6be56e69d601.png)
+
 
 ## License:
 - ISC
